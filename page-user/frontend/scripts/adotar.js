@@ -1,3 +1,4 @@
+//Pegar o nome de usuário se houver alguem logado.
 window.onload = function() {
     const userLogged = JSON.parse(localStorage.getItem("userLogged"));  // Pega o usuário logado do localStorage
     if (userLogged) {
