@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que o padding não afete o tamanho */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Molengo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
+
+
+/*Cabeçalho*/
+.header {
+    width: 100vw;
+    height: 50px;
+    background-color: #073FB6;
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: space-between; /* Espaça os itens */
+    padding: 0 20px; /* Adiciona espaçamento lateral */
+}
+
+
+/*Parte de navegação*/
+.header nav {
+    display: flex;
+    gap: 40px; /* Melhor para espaçar os itens */
+    align-items: center;
+}
+
+/*Cada item da navegação*/
+.header a {
+    color: whitesmoke;
+    font-size: 18px;
+    text-decoration: none; /* Remove sublinhado dos links */
+    font-family: 'Molengo', sans-serif;
+}
+
+/*div para informações do usuario*/
+.user-info {
+    display: flex;
+    align-items: center; /* Alinha verticalmente o ícone e o texto */
+    gap: 10px; /* Espaça o ícone e o texto */
+}
+
+/*icone importado*/
+#icon-person {
+    color: white;
+    font-size: 38px; /* Ajusta o tamanho do ícone */
+    cursor: pointer;
+}
+
+/*nome do usuario*/
+#user-identification {
+    color: white;
+    font-size: 16px; /* Ajusta o tamanho do texto */
+    font-family: 'Space Grotesk', sans-serif;
+    user-select: none;
+}

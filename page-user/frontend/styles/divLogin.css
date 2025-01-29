@@ -1,0 +1,50 @@
+#divLogin {
+    width: 250px;
+    height: auto; 
+    border: 1px solid black;
+    display: none;
+    flex-direction: column;
+    margin: 20px auto;
+    padding: 20px;
+    gap: 15px;
+}
+
+#divLogin label {
+    font-size: 14px;
+}
+
+#divLogin input {
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Estilo geral para todos os botões */
+button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+
+}
+
+#btnSubmitLogin {
+    background-color: #fc0800; /* Cor verde para Register */
+    color: white;
+}
+
+#btnSubmitLogin:hover {
+    background-color: #991a16;
+}
+
+#btnRegister {
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc; /* Borda para o Login */
+}
+
+#btnRegister:hover {
+    background-color: #cecdcd; /* Altere a cor ao passar o mouse */
+}

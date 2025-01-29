@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page-Account</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="styles/divRegister.css">
+    <link rel="stylesheet" href="styles/divLogin.css">
+    <link rel="stylesheet" href="styles/header.css">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navPages">
+            <a href="page-adotar.html">ADOTAR</a>
+            <a href="">DESAPARECIDOS</a>
+        </nav>
+
+        <!-- Contêiner para o texto do usuário e o ícone -->
+        <div class="user-info">
+            <span id="user-identification"></span>
+            <span class="material-icons icon" id="icon-person" onclick="window.location.href='page-account.html'">account_circle</span>
+        </div>
+    </header>
+
+    <div id="divRegister">
+        <label for="">REGISTER</label>
+
+        <label for="inputRegisterUser">User:</label>
+        <input type="text" id="inputRegisterUser" placeholder="Digite seu usuário...">
+        
+        <label for="inputRegisterPassword">Password</label>
+        <input type="password" id="inputRegisterPassword" placeholder="Digite sua senha..."">
+
+        <label for="inputRegisterPassword2">Confirm Password</label>
+        <input type="password" id="inputRegisterPassword2" placeholder="Digite sua senha...">
+        
+        <button type="button" id="btnSubmitRegister">Register</button> <!-- Apenas um botão, sem form -->        
+        <button type="button" id="btnLogin">Login</button> <!-- Apenas um botão, sem form -->        
+    </div>
+
+    <div id="divLogin" >
+        <label for="">LOGIN</label>
+
+        <label for="inputLoginUser">User:</label>
+        <input type="text" id="inputLoginUser" placeholder="Digite seu usuário...">
+        
+        <label for="inputLoginPassword">Password</label>
+        <input type="password" id="inputLoginPassword" placeholder="Digite sua senha..."">
+
+        
+        <button type="button" id="btnSubmitLogin">Login</button> <!-- Apenas um botão, sem form -->        
+        <button type="button" id="btnRegister">Register</button> <!-- Apenas um botão, sem form -->        
+    </div>
+
+    <button id="btnMostarUsers">Listar</button>
+    <pre id="preUsers"></pre>
+
+
+    <script type="module" src="scripts/account.js"></script>
+    <script type="module" src="scripts/visualizarForms.js"></script>
+</body>
+</html>
