@@ -9,6 +9,27 @@
       "id": "34c9",
       "username": "Admin",
       "password": "Admin"
+    },
+    {
+      "id": "d781",
+      "username": "Femboy6969",
+      "password": "123"
+    }
+  ],
+  "posts": [
+    {
+      "id": "cb50",
+      "nome": "Cachorro fudido",
+      "usuario": "Femboy6969",
+      "localizacao": "Xique-Xique, Bahia",
+      "dataPostagem": "30/01/2025"
+    },
+    {
+      "id": "8f9c",
+      "nome": "Cachorro fudido",
+      "usuario": "Femboy6969",
+      "localizacao": "Xique-Xique, Bahia",
+      "dataPostagem": "30/01/2025"
     }
   ]
 }
