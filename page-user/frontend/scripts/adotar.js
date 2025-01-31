@@ -13,11 +13,11 @@ document.getElementById("fazer-postagem-btn").addEventListener("click", function
     
     const currentDate = new Date();
     const formattedDate = new Intl.DateTimeFormat('pt-BR').format(currentDate);
-
+    
     if(userLogged){
-        createPost("Cachorro fudido", userLogged.username, "Xique-Xique, Bahia", formattedDate)
+        createPost("Yumi - Gato", userLogged.username, "Salvador, Bahia", formattedDate)
     } else {
-        alert("Crie sua conta ou faça login!")
+        alert("Crie sua conta ou faça login!");
     }
 })
 
@@ -32,6 +32,7 @@ async function getPosts(){
             
             response.data.forEach(animal => {
                 const novaDiv = criarDivAnimal(
+                    animal.id,
                     animal.nome, 
                     animal.usuario, 
                     animal.localizacao, 
@@ -62,39 +63,25 @@ async function createPost(nome, usuario, localizacao, dataPostagem){
 
 }
 
-function criarDivAnimal(nome, usuario, localizacao, dataPostagem) {
+function criarDivAnimal(id, nome, usuario, localizacao, dataPostagem) {
     const divAnimal = document.createElement("div");
     divAnimal.classList.add("div-animal");
+    divAnimal.dataset.id = id; // Armazena o ID do post
 
-    const imgAnimal = document.createElement("div");
-    imgAnimal.classList.add("img-animal");
+    divAnimal.innerHTML = `
+        <div class="img-animal"></div>
+        <div class="dados-animal">
+            <label id="nome-animal">${nome}</label>
+            <label id="postado-por">Publicado por ${usuario}</label>
+            <label id="local">${localizacao}</label>
+            <label id="data-postagem">${dataPostagem}</label>
+        </div>
+    `;
 
-    const dadosAnimal = document.createElement("div");
-    dadosAnimal.classList.add("dados-animal");
-
-    const nomeAnimal = document.createElement("label");
-    nomeAnimal.id = "nome-animal";
-    nomeAnimal.textContent = nome;
-
-    const postadoPor = document.createElement("label");
-    postadoPor.id = "postado-por";
-    postadoPor.textContent = `Publicado por ${usuario}`;
-
-    const local = document.createElement("label");
-    local.id = "local";
-    local.textContent = localizacao;
-
-    const dataPostagemEl = document.createElement("label");
-    dataPostagemEl.id = "data-postagem";
-    dataPostagemEl.textContent = dataPostagem;
-
-    dadosAnimal.appendChild(nomeAnimal);
-    dadosAnimal.appendChild(postadoPor);
-    dadosAnimal.appendChild(local);
-    dadosAnimal.appendChild(dataPostagemEl);
-
-    divAnimal.appendChild(imgAnimal);
-    divAnimal.appendChild(dadosAnimal);
+    // Adiciona um evento de clique para redirecionar à página de detalhes
+    divAnimal.addEventListener("click", () => {
+        window.location.href = `page-detalhes.html?id=${id}`;
+    });
 
     return divAnimal;
 }

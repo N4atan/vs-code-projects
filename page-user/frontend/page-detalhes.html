@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page-Detalhes</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/detalhes.css">
+    
+</head>
+<body>
+    <header class="header">
+        <nav class="navPages">
+            <a href="page-adotar.html">ADOTAR</a>
+            <a href="">DESAPARECIDOS</a>
+        </nav>
+
+        <!-- Contêiner para o texto do usuário e o ícone -->
+        <div class="user-info">
+            <span id="user-identification"></span>
+            <span class="material-icons icon" id="icon-person" onclick="window.location.href='page-account.html'">account_circle</span>
+        </div>
+    </header>
+
+    <main id="main-detalhes">
+        <div class="img-div">
+            <div id="img-animal"></div>
+        </div>
+
+        <div class="dados-div">
+            <span id="nome-animal"></span>
+            <span id="postado-por"></span>
+            <span id="descricao"></span>
+            <span id="localizacao"></span>
+            <span id="data-postagem"></span>
+        </div>
+    </main>
+
+    <script type="module" src="scripts/detalhes.js"></script>
+</body>
+</html>
