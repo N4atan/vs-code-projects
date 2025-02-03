@@ -15,7 +15,7 @@ document.getElementById("fazer-postagem-btn").addEventListener("click", function
     const formattedDate = new Intl.DateTimeFormat('pt-BR').format(currentDate);
     
     if(userLogged){
-        createPost("Yumi - Gato", userLogged.username, "Salvador, Bahia", formattedDate)
+        createPost("Midori - Gato Preto", userLogged.username, "Salvador, Bahia", formattedDate)
     } else {
         alert("Crie sua conta ou faça login!");
     }
