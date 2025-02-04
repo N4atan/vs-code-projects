@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Senha</title>
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f9f9f9;
+}
+
+.container {
+    display: flex;
+    gap: 20px; /* Espaçamento entre o form e a div dos botões */
+}
+
+form {
+    background-color: #fff;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    padding: 20px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+input[type="text"],
+input[type="checkbox"] {
+    margin-bottom: 15px;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    padding: 5px;
+    font-size: 14px;
+    width: 100%;
+}
+
+label {
+    font-size: 14px;
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+}
+
+input[type="checkbox"] {
+    width: auto;
+    margin-right: 5px;
+}
+
+button {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #007bff;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+#h1-senhaGerada {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+.div-botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaçamento entre os botões */
+}
+
+#btn-normal,
+#btn-preferencial {
+    width: 300px; /* Define uma largura fixa para os botões */
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form>
+            <h1>GERAR SENHA</h1>
+            <label for="inputNome">Nome</label>
+            <input type="text" id="inputNome" placeholder="Digite o nome aqui...">
+            <label>
+                <input type="checkbox" id="inputPreferencial"> É Preferencial?
+            </label>
+            <button type="button" id="btn-gerar">Gerar</button>
+            <h1 id="h1-senhaGerada"></h1>
+        </form>
+        <div class="div-botoes">
+            <button id="btn-normal">Próx. Atendimento Normal</button>
+            <button id="btn-preferencial">Próx. Atendimento Preferencial</button>
+        </div>
+    </div>
+
+    <script>
+        let filas = { normal: [], preferencial: [] };
+
+        function gerarSenha(nome, tipoAtendimento) {
+            let tipo = tipoAtendimento === 1 ? "preferencial" : "normal";
+            let prefixo = tipoAtendimento === 1 ? "AP" : "AN";
+           
+            let senhaNova = {
+                Senha: `${filas[tipo].length + 1}${prefixo}`,
+                Nome: nome
+            };
+
+            filas[tipo].push(senhaNova);
+            console.log(`${nome} foi adicionado à fila de espera ${tipo}`);
+
+            return senhaNova;
+        }
+
+        document.getElementById("btn-gerar").addEventListener("click", () => {
+            let nome = document.getElementById("inputNome").value.trim();
+            let checkBox = document.getElementById("inputPreferencial");
+
+            if (!nome) {
+                alert("Por favor, digite um nome.");
+                return;
+            }
+
+            let tipoAtendimento = checkBox.checked ? 1 : 0;
+            let senhaGerada = gerarSenha(nome, tipoAtendimento);
+
+            document.getElementById("h1-senhaGerada").innerText = `Senha: ${senhaGerada.Senha}`;
+        });
+   
+   
+    </script>
+</body>
+</html>
+
+
