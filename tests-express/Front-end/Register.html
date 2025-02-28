@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar</title>
+</head>
+<body>
+    <form id="formRegistrar" onsubmit="registrarUsuario(event)">
+        <label for="inputNome">Nome:</label>
+        <input type="text" name="inputNome" id="inputNome">
+
+        <label for="inputEmail">Email:</label>
+        <input type="email" name="inputEmail" id="inputEmail">
+
+        <label for="inputSenha">Senha:</label>
+        <input type="password" name="inputSenha" id="inputSenha">
+
+        <button id="btn-Registrar" type="submit">Registrar</button>
+    </form>
+
+    <script>
+        async function registrarUsuario(event) {
+            event.preventDefault(); // Previne o envio padrão do formulário
+
+            const nome = document.getElementById("inputNome").value;
+            const email = document.getElementById("inputEmail").value;
+            const senha = document.getElementById("inputSenha").value;
+
+            try {
+                const resp = await fetch("http://localhost:3000/users", {
+                    method: "POST",  // Certificando que é POST
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ nome, email, senha })
+                });
+
+                const data = await resp.json();
+                console.log(data);
+
+                if (resp.status(201)) {
+                    alert("Usuário Cadastrado Com Sucesso!");
+                } else {
+                    alert("Deu xabu: " + (data.error || "Erro desconhecido"));
+                }
+            } catch (error) {
+                console.error("Erro ao registrar:", error);
+                alert("Email já cadastrado!");
+            }
+        }
+    </script>
+</body>
+</html>
